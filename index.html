@@ -15,78 +15,81 @@
       flex-direction: column;
       min-height: 100vh;
       overflow-x: hidden;
+      padding: 10px;
+      box-sizing: border-box;
     }
     h1 {
-      margin: 20px 10px 10px;
-      font-size: 2.5em;
+      margin: 15px 10px 10px;
+      font-size: 2em;
+      font-weight: 600;
     }
     .photo-frame {
-      border: 4px solid #fff;
-      padding: 10px;
-      margin: 10px auto;
-      border-radius: 20px;
+      border: 3px solid #fff;
+      padding: 8px;
+      margin: 8px auto;
+      border-radius: 15px;
       background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-      max-width: 320px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+      max-width: 300px;
       width: 90vw;
     }
     .photo-frame img {
       width: 100%;
       height: auto;
-      border-radius: 15px;
+      border-radius: 12px;
       display: block;
       margin: 0 auto;
     }
     .emoji {
-      font-size: 1.8em;
-      margin-top: 8px;
+      font-size: 1.5em;
+      margin-top: 6px;
     }
     .footer {
       margin-top: auto;
-      margin-bottom: 20px;
-      font-size: 1.2em;
+      margin-bottom: 15px;
+      font-size: 1em;
       font-style: italic;
-      opacity: 0.9;
+      opacity: 0.85;
     }
     audio {
       display: none;
     }
-    /* Kalplerin yağması animasyonu */
     .heart {
       position: fixed;
-      top: -50px;
-      color: #ff66cc;
-      font-size: 2em;
+      top: -40px;
+      color: #b266ff; /* daha mor */
+      font-size: 1.8em;
       animation: fall linear infinite;
       user-select: none;
       pointer-events: none;
       z-index: 9999;
+      opacity: 0.7;
     }
     @keyframes fall {
       to {
-        transform: translateY(120vh);
+        transform: translateY(110vh);
         opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Doğum Günün Kutlu Olsun Aleyim! 🎉</h1>
+  <h1>🎉 Doğum Günün Kutlu Olsun Aleyim! 💜</h1>
 
   <div class="photo-frame">
-    <img src="https://i.imgur.com/gEr58nF.jpg" alt="Aley foto" />
+    <img src="https://i.imgur.com/FN4m2Hx.jpg" alt="Aley foto" />
     <div class="emoji">💜✨🌸</div>
   </div>
   <div class="photo-frame">
-    <img src="https://i.imgur.com/V0JYYhC.jpg" alt="Aley foto" />
+    <img src="https://i.imgur.com/gEr58nF.jpg" alt="Aley foto" />
     <div class="emoji">💖🎀🌟</div>
   </div>
   <div class="photo-frame">
-    <img src="https://i.imgur.com/3ZgUQEx.jpg" alt="Aley foto" />
+    <img src="https://i.imgur.com/V0JYYhC.jpg" alt="Aley foto" />
     <div class="emoji">🌈💕💫</div>
   </div>
   <div class="photo-frame">
-    <img src="https://i.imgur.com/mGky6Iv.jpg" alt="Aley foto" />
+    <img src="https://i.imgur.com/3ZgUQEx.jpg" alt="Aley foto" />
     <div class="emoji">🌷💗💎</div>
   </div>
 
@@ -102,12 +105,12 @@
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
       heart.innerText = '💜';
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
+      setTimeout(() => heart.remove(), 6000);
     }
-    setInterval(createHeart, 300);
+    setInterval(createHeart, 400);
   </script>
 </body>
 </html>
