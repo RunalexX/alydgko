@@ -1,116 +1,117 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doğum Günün Kutlu Olsun Aleyim 💜</title>
-  <style>
-    body {
-      margin: 0;
-      background: linear-gradient(to bottom right, #8e44ad, #9b59b6);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-    h1 {
-      margin: 15px 10px 10px;
-      font-size: 2em;
-      font-weight: 600;
-    }
-    .photo-frame {
-      border: 3px solid #fff;
-      padding: 8px;
-      margin: 8px auto;
-      border-radius: 15px;
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-      max-width: 300px;
-      width: 90vw;
-    }
-    .photo-frame img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto;
-    }
-    .emoji {
-      font-size: 1.5em;
-      margin-top: 6px;
-    }
-    .footer {
-      margin-top: auto;
-      margin-bottom: 15px;
-      font-size: 1em;
-      font-style: italic;
-      opacity: 0.85;
-    }
-    audio {
-      display: none;
-    }
-    .heart {
-      position: fixed;
-      top: -40px;
-      color: #b266ff; /* daha mor */
-      font-size: 1.8em;
-      animation: fall linear infinite;
-      user-select: none;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.7;
-    }
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Doğum Günün Kutlu Olsun Aleyim 💜</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(to bottom right, #8e44ad, #9b59b6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px 10px 20px;
+    box-sizing: border-box;
+  }
+  h1 {
+    margin: 15px 0 10px;
+    font-weight: 600;
+    font-size: 2em;
+  }
+  .big-photo {
+    width: 90vw;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+  .big-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .frame-container {
+    width: 90vw;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px 15px;
+  }
+  /* Mor kalp çerçeve */
+  .photo-frame {
+    position: relative;
+    border-radius: 20px;
+    padding: 8px;
+    background: #6f42c1; /* koyu mor */
+    box-shadow: 0 0 10px #9b59b6;
+  }
+  .photo-frame img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+    object-fit: cover;
+    max-height: 160px;
+  }
+  /* Kalp şekli çerçeve için */
+  .photo-frame::before {
+    content: "💜";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 2.5em;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
+  }
+  /* Alt satır için tek sütun */
+  .photo-frame.bottom {
+    grid-column: 1 / span 2;
+    max-width: 100%;
+  }
+  .footer {
+    margin-top: auto;
+    font-style: italic;
+    font-size: 1em;
+    opacity: 0.85;
+    margin-bottom: 10px;
+  }
+  audio {
+    display: none;
+  }
+</style>
 </head>
 <body>
-  <h1>🎉 Doğum Günün Kutlu Olsun Aleyim! 💜</h1>
 
+<h1>Doğum Günün Kutlu Olsun Aleyim 💜</h1>
+
+<div class="big-photo">
+  <img src="https://i.ibb.co/DPMCVKVr/IMG-20240510-001120-312.jpg" alt="Büyük Fotoğraf" />
+</div>
+
+<div class="frame-container">
   <div class="photo-frame">
-    <img src="https://i.imgur.com/FN4m2Hx.jpg" alt="Aley foto" />
-    <div class="emoji">💜✨🌸</div>
+    <img src="https://i.ibb.co/S4pqcgWv/491452929-17890498734239269-2064440992643936884-n.jpg" alt="Üst Sol Foto" />
   </div>
   <div class="photo-frame">
-    <img src="https://i.imgur.com/gEr58nF.jpg" alt="Aley foto" />
-    <div class="emoji">💖🎀🌟</div>
+    <img src="https://i.ibb.co/gMqbj01L/IMG-20250719-033651.jpg" alt="Üst Sağ Foto" />
   </div>
-  <div class="photo-frame">
-    <img src="https://i.imgur.com/V0JYYhC.jpg" alt="Aley foto" />
-    <div class="emoji">🌈💕💫</div>
+  <div class="photo-frame bottom">
+    <img src="https://i.ibb.co/gbNM8pMJ/IMG-20250719-040658.jpg" alt="Alt Foto" />
   </div>
-  <div class="photo-frame">
-    <img src="https://i.imgur.com/3ZgUQEx.jpg" alt="Aley foto" />
-    <div class="emoji">🌷💗💎</div>
-  </div>
+</div>
 
-  <div class="footer">~Ahmet</div>
+<div class="footer">~Ahmet</div>
 
-  <audio autoplay loop>
-    <source src="https://github.com/RunalexX/hakanve56minarpassatlar/raw/main/leyla.mp3" type="audio/mpeg" />
-    Tarayıcınız müziği desteklemiyor.
-  </audio>
+<audio autoplay loop>
+  <source src="https://github.com/RunalexX/hakanve56minarpassatlar/raw/main/leyla.mp3" type="audio/mpeg" />
+  Tarayıcınız müziği desteklemiyor.
+</audio>
 
-  <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-      heart.innerText = '💜';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 400);
-  </script>
 </body>
-</html>
+</html> 
