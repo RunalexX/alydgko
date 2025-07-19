@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="tr">
+<!DOCTYPE html>
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doğum Günün Kutlu Olsun!</title>
   <style>
     body {
@@ -9,169 +10,249 @@
       font-family: 'Comic Sans MS', cursive;
       background-color: #ffcce7;
       overflow-x: hidden;
-    }#cake-screen, #main-site {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+      position: relative;
+    }
 
-#cake-screen {
-  background-color: #ffe4f2;
-  z-index: 10;
-}
+    #cake-screen, #main-site {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ffe4f2;
+      z-index: 10;
+    }
 
-#cake-img {
-  width: 300px;
-  margin-bottom: 20px;
-}
+    #cake-screen {
+      z-index: 20;
+    }
 
-#blow-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
+    #cake-img {
+      width: 300px;
+      margin-bottom: 20px;
+    }
 
-.title {
-  font-size: 28px;
-  color: #7e0080;
-  text-align: center;
-  margin-top: 20px;
-}
+    #blow-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff1493;
+      transition: background-color 0.3s;
+    }
+    #blow-button:hover {
+      background-color: #e63a8a;
+    }
 
-.photo-main {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #ff69b4;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
+    .title {
+      font-size: 28px;
+      color: #7e0080;
+      text-align: center;
+      margin-top: 20px;
+    }
 
-.photo-main:hover {
-  transform: scale(1.05);
-}
+    .photo-main {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ff69b4;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      object-fit: cover;
+      height: auto;
+    }
 
-.heart-frame {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 6px solid #c71585;
-  margin: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 15px #ff69b4;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
+    .photo-main:hover {
+      transform: scale(1.05);
+    }
 
-.heart-frame:hover {
-  transform: scale(1.1);
-}
+    .heart-frame {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 6px solid #c71585;
+      margin: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 15px #ff69b4;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
 
-.heart-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    .heart-frame:hover {
+      transform: scale(1.1);
+    }
 
-.msg {
-  text-align: center;
-  font-size: 24px;
-  margin-top: 30px;
-  color: #6b006b;
-}
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.msg span {
-  display: block;
-  margin-top: 10px;
-  font-style: italic;
-}
+    #main-site {
+      display: none;
+      background-color: #ffc0db;
+      padding: 20px 10px 60px 10px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: relative;
+      z-index: 10;
+    }
 
-#music-box {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 10px #aaa;
-}
+    /* Balon animasyonu */
 
-.balloon {
-  width: 30px;
-  height: 40px;
-  background: pink;
-  border-radius: 50% 50% 50% 50%;
-  position: absolute;
-  animation: float 8s infinite ease-in;
-  opacity: 0.7;
-}
+    .balloon {
+      width: 30px;
+      height: 40px;
+      background: pink;
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      animation: float 8s infinite ease-in;
+      opacity: 0.7;
+      box-shadow: 0 2px 5px rgba(255, 105, 180, 0.7);
+      filter: drop-shadow(0 0 5px #ff69b4);
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh);
-  }
-  100% {
-    transform: translateY(-100vh);
-  }
-}
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-100vh);
+      }
+    }
+
+    /* Müzik alanı */
+    #music-container {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: #ffe0f0;
+      padding: 8px 12px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px #d28cd9;
+      z-index: 1000;
+      user-select: none;
+    }
+
+    #music-container button {
+      background: #d48ce0;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    #music-container iframe {
+      margin-top: 6px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #d48ce0;
+    }
 
   </style>
 </head>
 <body>
+
+  <!-- Pasta ve Üfleme ekranı -->
   <div id="cake-screen">
-    <img id="cake-img" src="https://i.ibb.co/BrD8Swn/pasta.png" alt="pasta" />
+    <img id="cake-img" src="https://i.ibb.co/BrD8Swn/pasta.png" alt="Doğum Günü Pastası" />
     <button id="blow-button">Üfle 🎂</button>
-  </div>  <div id="main-site" style="display: none;">
+  </div>
+
+  <!-- Asıl Site -->
+  <div id="main-site">
     <div class="title">Doğum Günün Kutlu Olsun Aleyim 💜</div>
-    <img class="photo-main" src="https://i.ibb.co/DPMCVKVr/IMG-20240510-001120-312.jpg" alt="Ana Foto" onclick="openInNewTab(this.src)" /><div class="heart-container">
-  <img class="heart-frame" src="https://i.ibb.co/S4pqcgWv/491452929-17890498734239269-2064440992643936884-n.jpg" alt="1" onclick="openInNewTab(this.src)" />
-  <img class="heart-frame" src="https://i.ibb.co/gMqbj01L/IMG-20250719-033651.jpg" alt="2" onclick="openInNewTab(this.src)" />
-  <img class="heart-frame" src="https://i.ibb.co/gbNM8pMJ/IMG-20250719-040658.jpg" alt="3" onclick="openInNewTab(this.src)" />
-</div>
 
-<div class="msg">
-  Seni çok seviyorum, iyi ki doğdun!<br />
-  <span>~ Ahmet</span>
-</div>
+    <img
+      class="photo-main"
+      src="https://i.ibb.co/DPMCVKVr/IMG-20240510-001120-312.jpg"
+      alt="Ana Foto"
+      onclick="openInNewTab(this.src)"
+    />
 
-<div id="music-box">
-  <button onclick="document.getElementById('ytmusic').src += '&autoplay=1'; this.style.display='none'">Müziği Başlat 🎵</button>
-  <iframe id="ytmusic" width="200" height="113" src="https://www.youtube.com/embed/sUSzuxJ4aJY?si=L_THG45rfdswtnUv" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+    <div class="heart-container">
+      <img
+        class="heart-frame"
+        src="https://i.ibb.co/S4pqcgWv/491452929-17890498734239269-2064440992643936884-n.jpg"
+        alt="Foto 1"
+        onclick="openInNewTab(this.src)"
+      />
+      <img
+        class="heart-frame"
+        src="https://i.ibb.co/gMqbj01L/IMG-20250719-033651.jpg"
+        alt="Foto 2"
+        onclick="openInNewTab(this.src)"
+      />
+      <img
+        class="heart-frame"
+        src="https://i.ibb.co/gbNM8pMJ/IMG-20250719-040658.jpg"
+        alt="Foto 3"
+        onclick="openInNewTab(this.src)"
+      />
+    </div>
+  </div>
 
-  </div>  <script>
+  <!-- Müzik Başlatıcı -->
+  <div id="music-container">
+    <button id="playMusicBtn">🎶 Müziği Başlat</button>
+    <div id="youtubePlayer" style="display:none;">
+      <iframe
+        id="musicFrame"
+        width="200"
+        height="113"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Üfleme butonu
     document.getElementById("blow-button").addEventListener("click", () => {
       document.getElementById("cake-screen").style.display = "none";
       document.getElementById("main-site").style.display = "block";
     });
 
+    // Fotoğraf tıklayınca büyük aç
     function openInNewTab(url) {
-      window.open(url, '_blank');
+      window.open(url, "_blank");
     }
 
-    // Balonlar
+    // Balon animasyonu
     function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      balloon.style.left = Math.random() * 100 + 'vw';
-      balloon.style.background = `hsl(${Math.random()*360}, 70%, 80%)`;
-      balloon.style.animationDuration = 5 + Math.random()*5 + 's';
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.background = `hsl(${Math.random() * 360}, 70%, 80%)`;
+      balloon.style.animationDuration = 5 + Math.random() * 5 + "s";
       document.body.appendChild(balloon);
 
       setTimeout(() => balloon.remove(), 10000);
     }
-
     setInterval(createBalloon, 800);
-  </script></body>
+
+    // Müzik oynatıcı kontrolü
+    const playBtn = document.getElementById("playMusicBtn");
+    const playerDiv = document.getElementById("youtubePlayer");
+    const musicFrame = document.getElementById("musicFrame");
+
+    playBtn.addEventListener("click", () => {
+      musicFrame.src = "https://www.youtube.com/embed/sUSzuxJ4aJY?autoplay=1";
+      playerDiv.style.display = "block";
+      playBtn.style.display = "none";
+    });
+  </script>
+</body>
 </html>
